@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "D:/DevShit/NEw/ESP/Redford/build/CMakeFiles/bootloader"
+			"file" : "D:/DEVELOPER_SHIT/Clean-25/Redford/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "D:/DevShit/NEw/ESP/Redford/build/CMakeFiles/bootloader.rule"
+			"file" : "D:/DEVELOPER_SHIT/Clean-25/Redford/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "D:/DevShit/NEw/ESP/Redford/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "D:/DEVELOPER_SHIT/Clean-25/Redford/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		},
 		{
-			"file" : "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		}
 	],
 	"target" : 

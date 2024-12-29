@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/thatg/esp/esp-idf/components/esp_system
+# Install script for directory: C:/esp/esp-idf/components/esp_system
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/thatg/esp/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/esp/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/DevShit/NEw/ESP/Redford/build/esp-idf/esp_system/port/cmake_install.cmake")
+  include("D:/DEVELOPER_SHIT/Clean-25/Redford/build/esp-idf/esp_system/port/cmake_install.cmake")
 
 endif()
 

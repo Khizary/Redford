@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-D:/DevShit/NEw/ESP/Redford/build/CMakeFiles/bootloader
-D:/DevShit/NEw/ESP/Redford/build/CMakeFiles/bootloader.rule
-D:/DevShit/NEw/ESP/Redford/build/CMakeFiles/bootloader-complete.rule
-D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+D:/DEVELOPER_SHIT/Clean-25/Redford/build/CMakeFiles/bootloader
+D:/DEVELOPER_SHIT/Clean-25/Redford/build/CMakeFiles/bootloader.rule
+D:/DEVELOPER_SHIT/Clean-25/Redford/build/CMakeFiles/bootloader-complete.rule
+D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

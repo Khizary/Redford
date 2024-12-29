@@ -1,4 +1,4 @@
-/* * Data converted from D:/DevShit/NEw/ESP/Redford/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from D:/DEVELOPER_SHIT/Clean-25/Redford/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

@@ -4,16 +4,16 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "C:/Users/thatg/esp/esp-idf/components/bootloader/subproject"
-  "D:/DevShit/NEw/ESP/Redford/build/bootloader"
-  "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix"
-  "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/tmp"
-  "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp"
-  "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src"
-  "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/esp/esp-idf/components/bootloader/subproject"
+  "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader"
+  "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix"
+  "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/tmp"
+  "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp"
+  "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src"
+  "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "D:/DevShit/NEw/ESP/Redford/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "D:/DEVELOPER_SHIT/Clean-25/Redford/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()

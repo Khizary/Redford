@@ -20,7 +20,6 @@
 #endif
 #include "button_adc.h"
 
-
 static const char *TAG = "adc button";
 
 #define ADC_BTN_CHECK(a, str, ret_val)                          \
@@ -141,7 +140,7 @@ static esp_err_t adc_calibration_init(adc_unit_t unit, adc_atten_t atten, adc_ca
         ESP_LOGE(TAG, "Invalid arg or no memory");
     }
 
-    return calibrated?ESP_OK:ESP_FAIL;
+    return calibrated ? ESP_OK : ESP_FAIL;
 }
 #endif
 
@@ -306,7 +305,7 @@ uint8_t button_adc_get_key_level(void *button_index)
     }
 
     if (vol <= g_button.ch[ch_index].btns[index].max &&
-            vol > g_button.ch[ch_index].btns[index].min) {
+            vol >= g_button.ch[ch_index].btns[index].min) {
         return 1;
     }
     return 0;

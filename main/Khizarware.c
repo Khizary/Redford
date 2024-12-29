@@ -9,60 +9,68 @@
 #include "esp_log.h"
 #include <string.h>
 #include "iot_button.h"
-#include "driver/adc.h"
-// #include <iostream>
-// #include <string>
 
 
 
-#define TAG "app"
+#define TAG "Redford Main"
 
-#define ROT_ENC_A_GPIO 33
-#define ROT_ENC_B_GPIO 35
-#define ADC_PIN 13
+// Rotary Encoder
+#define ROT_ENC_A_GPIO 33 // to rotary encoder 1
+#define ROT_ENC_B_GPIO 35 // to rotary encoder 2
 #define ENABLE_HALF_STEPS true // Set to true to enable tracking of rotary encoder at half step resolution
 #define RESET_AT 128           // Set to a positive non-zero number to reset the position if this value is exceeded
 #define FLIP_DIRECTION false   // Set to true to reverse the clockwise/counterclockwise sense
+// pin 32 to rotary encoder switch.
+
+// Others 
 #define UV_PIN 27
 #define RGB_PIN 14
-#define I2C_MASTER_SCL_IO 26      /*!< gpio number for I2C master clock */
-#define I2C_MASTER_SDA_IO 25      /*!< gpio number for I2C master data  */
+
+// OLED SSD1306
+#define I2C_MASTER_SCL_IO 26      /*!< gpio number for I2C master clock */ // Display SCL
+#define I2C_MASTER_SDA_IO 25      /*!< gpio number for I2C master data  */ // DIsplay SDA
 #define I2C_MASTER_NUM I2C_NUM_1  /*!< I2C port number for master dev */
-#define I2C_MASTER_FREQ_HZ 400000 
+#define I2C_MASTER_FREQ_HZ 400000 /*!< I2C master clock frequency */
 
 
 
-
-/*!< I2C master clock frequency */
+// intial selection
 int selected = 1;
-char *menu[] = {"Enable  UV", "Enable RGB", "W-CaptPort", "W-EvilTwin", "W-Sniffer ", "B-Sniffer "};
+
+// main menu items(each 15 chars to ensure full pixel overwrite)
+char *menu[] = {"Enable Laser  ", "Enable RGB    ", "Wifi-CaptPort ", "Wifi-EvilTwin ", "Wifi-Sniffer  ", "BT-Sniffer    "};
+
+// max index of main menu array
 int MAX = 5;
+
+// inital values
 int UV = 0;
 int RGB = 0;
+
+
+// init 
 static ssd1306_handle_t ssd1306_dev = NULL;
 enum rotary;
 
 
-
-
-
 void list_item_by_index(int i, int *xpos, int *ypos, bool invert)
 {
-
     ssd1306_draw_string(ssd1306_dev, *xpos, *ypos, (const uint8_t *)menu[i], 12, invert);
     ssd1306_refresh_gram(ssd1306_dev);
+    //arbitrary pixel spacing between each element
     *ypos += 14;
-    *xpos += 20;
+    *xpos += 18;
 }
 
 void update_display()
 {
     // ssd1306_clear_screen(ssd1306_dev, 0x00);
-    char data_str[12] = {0};
-    sprintf(data_str, "T1nker");
-    ssd1306_draw_string(ssd1306_dev, 0, 0, (const uint8_t *)data_str, 14, 1);
+    char data_str[11] = {0};
+    sprintf(data_str, "[Marauder]");
+    ssd1306_draw_string(ssd1306_dev, 25, 0, (const uint8_t *)data_str, 16, 1);
+    // initial coordinates to draw menu from
     int xpos = 5;
-    int ypos = 20;
+    int ypos = 15;
     if (selected == 0)
     {
         list_item_by_index(MAX, &xpos, &ypos, 1);
@@ -81,36 +89,7 @@ void update_display()
         list_item_by_index(selected, &xpos, &ypos, 0);
         list_item_by_index(selected + 1, &xpos, &ypos, 1);
     }
-    // ssd1306_draw_line(ssd1306_dev, xpos, ypos, (xpos + height), (ypos + width));
     ESP_LOGI(TAG, "item 0: %s ", (const uint8_t *)menu[selected]);
-}
-
-void adc_task(void *pvParameter) {
-    // adc2_config_width(); // Configure ADC to 12-bit resolution
-    adc2_config_channel_atten(ADC2_CHANNEL_4, ADC_ATTEN_DB_11); // Configure ADC channel and attenuation
-
-    while (1) {
-        uint32_t adc_value = 0;
-
-        // Perform ADC conversion
-        for (int i = 0; i < 10; i++) {
-            int outval = 0;
-            adc2_get_raw(ADC2_CHANNEL_4, ADC_WIDTH_BIT_12, &outval);
-            adc_value += outval;
-            vTaskDelay(pdMS_TO_TICKS(10)); // Delay between ADC readings
-        }
-
-        adc_value /= 10; // Calculate the average ADC value
-
-        // Convert ADC value to voltage
-        float voltage = adc_value * (3.3 / (1 << 12));
-
-        char voltageString[11];
-        snprintf(voltageString, sizeof(voltageString), "V:%f", voltage);
-        menu[2] = voltageString;
-        update_display();
-        vTaskDelay(pdMS_TO_TICKS(1000)); // Delay before the next reading
-    }
 }
 
 void check_state()
@@ -125,14 +104,14 @@ void check_state()
         {
             gpio_set_level(UV_PIN, 1);
             UV = 1;
-            menu[selected] = "Disable UV";
+            menu[selected] = "Disable Laser ";
             update_display();
         }
         else
         {
             gpio_set_level(UV_PIN, 0);
             UV = 0;
-            menu[selected] = "Enable  UV";
+            menu[selected] = "Enable Laser  ";
             update_display();
         }
         ESP_LOGI(TAG, "UV Action");
@@ -142,14 +121,14 @@ void check_state()
         {
             gpio_set_level(RGB_PIN, 1);
             RGB = 1;
-            menu[selected] = "DisableRGB";
+            menu[selected] = "Disable RGB   ";
             update_display();
         }
         else
         {
             gpio_set_level(RGB_PIN, 0);
             RGB = 0;
-            menu[selected] = "Enable RGB";
+            menu[selected] = "Enable RGB    ";
             update_display();
         }
         ESP_LOGI(TAG, "RGB Action");
@@ -248,6 +227,9 @@ void app_main(void)
         ESP_LOGE(TAG, "Button create failed");
     }
     iot_button_register_cb(gpio_btn, BUTTON_SINGLE_CLICK, button_single_click_cb, NULL);
+
+
+
     ssd1306_clear_screen(ssd1306_dev, 0x00);
     update_display();
     ssd1306_refresh_gram(ssd1306_dev);
@@ -256,7 +238,6 @@ void app_main(void)
     gpio_set_direction(UV_PIN, GPIO_MODE_OUTPUT);
     gpio_pad_select_gpio(RGB_PIN);
     gpio_set_direction(RGB_PIN, GPIO_MODE_OUTPUT);
-    xTaskCreate(adc_task, "adc_task", 4096, NULL, 5, NULL);
     get_rotary();
 
 }
